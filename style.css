@@ -1,0 +1,249 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section styles */
+section {
+    background: white;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+/* Input groups */
+.input-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #4a5568;
+    min-width: 120px;
+}
+
+.input-group input {
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Button styles */
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* DOM controls */
+.dom-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dom-controls button {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Results display */
+.results {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    min-height: 60px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.results:empty::before {
+    content: "Results will appear here...";
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* Toggle content */
+.toggle-content {
+    background: #e6fffa;
+    border: 2px solid #38b2ac;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.toggle-content.hidden {
+    display: none;
+}
+
+.toggle-content p {
+    color: #2d3748;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Dynamic content */
+.dynamic-content {
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    min-height: 100px;
+}
+
+.dynamic-content h3 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.dynamic-item {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .input-group label {
+        min-width: auto;
+    }
+    
+    .dom-controls {
+        flex-direction: column;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+    }
+}
+
+/* Special background colors for DOM manipulation demo */
+.bg-red { background: linear-gradient(135deg, #fc8181 0%, #f56565 100%) !important; }
+.bg-green { background: linear-gradient(135deg, #68d391 0%, #48bb78 100%) !important; }
+.bg-blue { background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%) !important; }
+.bg-purple { background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%) !important; }
+.bg-orange { background: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%) !important; }
